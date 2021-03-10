@@ -25,7 +25,7 @@ const drawerWidth = 240;
 
 
 
- const PersistentDrawerLeft = ({ totalItems }) => {
+ const PersistentDrawerLeft = ({ totalItems , categories }) => {
     
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
@@ -61,6 +61,9 @@ const drawerWidth = 240;
   const handleDrawerClose = () => {
     setOpen(false);
   };
+ 
+  
+
 
   return (
       <>
@@ -121,10 +124,10 @@ const drawerWidth = 240;
       
          <Divider />
         <List>
-          {['Computers', 'Fashion', 'Grocery'].map((text, index) => (
-            <ListItem button key={text}>
+          {categories.map((categorie, index) => (
+            <ListItem button key={categorie.name}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={categorie.name} />
             </ListItem>
           ))}
         </List>
@@ -142,5 +145,6 @@ const drawerWidth = 240;
     </>
   );
 
-}
+
+ }
 export default PersistentDrawerLeft ;

@@ -11,12 +11,20 @@ const App = () => {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
-
+  const [categories, setCategories] = useState([]);
+  
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
 
     setProducts(data);
   };
+
+  const fetchCategories = async () => {
+    const { data } = await commerce.categories.list();
+
+    setCategories(data);
+  };
+  
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -66,8 +74,13 @@ const App = () => {
 
   useEffect(() => {
     fetchProducts();
+    fetchCategories();
     fetchCart();
   }, []);
+
+  console.log(products);
+
+  
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
@@ -75,10 +88,11 @@ const App = () => {
     <Router>
       <div style={{ display: 'flex' }}>
         <CssBaseline />
-        <Navbar totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle} />
+        <Navbar categories={categories} totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle} />
         <Switch>
           <Route exact path="/">
             <Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
+            
           </Route>
           <Route exact path="/cart">
             <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
