@@ -13,18 +13,19 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [categories, setCategories] = useState([]);
   
-  const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-
-    setProducts(data);
-  };
-
+  const categorySlug = 'fashion';
   const fetchCategories = async () => {
     const { data } = await commerce.categories.list();
 
     setCategories(data);
   };
   
+  const fetchProducts = async () => {
+    const { data } = await commerce.products.list({category_slug: categorySlug,});
+
+    setProducts(data);
+  };
+
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());

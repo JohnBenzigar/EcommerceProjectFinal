@@ -72,6 +72,7 @@ const drawerWidth = 240;
       
       <CssBaseline />
       <AppBar
+        color="inherit"
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -125,7 +126,7 @@ const drawerWidth = 240;
          <Divider />
         <List>
           {categories.map((categorie, index) => (
-            <ListItem button key={categorie.name}>
+            <ListItem button key={categorie.name} >
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={categorie.name} />
             </ListItem>
