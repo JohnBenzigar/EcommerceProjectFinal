@@ -22,9 +22,9 @@ export default makeStyles((theme) => ({
     marginRight: '10px',
   },
   menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
+    menuButton: {
+      marginRight: theme.spacing(2),
+    
     },
   },
   grow: {
@@ -53,6 +53,11 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  h2: {
+    alignText: 'center',
+
+  },
+
   inputRoot: {
     color: 'inherit',
   },
