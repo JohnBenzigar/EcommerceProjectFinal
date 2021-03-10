@@ -1,6 +1,6 @@
 import { makeStyles, fade } from '@material-ui/core/styles';
 
-const drawerWidth = 0;
+const drawerWidth = 0
 
 export default makeStyles((theme) => ({
   appBar: {
@@ -11,6 +11,8 @@ export default makeStyles((theme) => ({
       marginLeft: drawerWidth,
     },
   },
+  
+  
   title: {
     flexGrow: 1,
     alignItems: 'center',
@@ -56,6 +58,9 @@ export default makeStyles((theme) => ({
   h2: {
     alignText: 'center',
 
+  },
+  drawerPaper: {
+    width: 250,
   },
 
   inputRoot: {

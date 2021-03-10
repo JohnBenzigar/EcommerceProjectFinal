@@ -86,7 +86,7 @@ const drawerWidth = 240;
             <MenuIcon />
           </IconButton>
           <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-            <img src={logo} alt="commerce.js" height="25px" className={classes.image} /> E-commerce
+            <img src={logo} alt="commerce.js" height="25px" className={classes.image}/>E-Commerce
           </Typography><br></br>
           <div className={classes.grow} />
           {location.pathname === '/' && (
@@ -121,7 +121,7 @@ const drawerWidth = 240;
       
          <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Computers', 'Fashion', 'Grocery'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
